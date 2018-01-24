@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
+    int firstClick = -1;
+    int secondClick = -1;
+    int thirdClick = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,39 @@ public class MainActivity extends AppCompatActivity {
         gridview.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
+                //This is new
+
+                //Set clicks upon start
+                //If the first click is not set, go ahead and set it.
+                if(firstClick < 0) {
+                    System.out.println("\nGot here too!\n");
+                    firstClick = position;
+                }
+                if(secondClick < 0 && firstClick >= 0) {
+                    secondClick = position;
+                }
+                if(thirdClick < 0 && secondClick >= 0 && firstClick >= 0) {
+                    thirdClick = position;
+                }
+                //Check if clicks are set
+                if(firstClick >= 0 && secondClick >= 0 && thirdClick >= 0) {
+                    //Addition
+                    System.out.println("\nGot here!\n");
+                    if(secondClick == 0) {
+                        Toast.makeText(MainActivity.this, "" + (firstClick + thirdClick),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                    //Multiplication
+                    else if(secondClick == 1) {
+                        Toast.makeText(MainActivity.this, "" + (firstClick * thirdClick),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                    //Subtraction
+                    else if(secondClick == 2) {
+                        Toast.makeText(MainActivity.this, "" + (firstClick - thirdClick),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
                 Toast.makeText(MainActivity.this, "" + position,
                         Toast.LENGTH_SHORT).show();
             }
