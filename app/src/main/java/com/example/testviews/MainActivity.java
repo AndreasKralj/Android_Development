@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        System.out.println("\nClick values: " + firstClick + " " + secondClick + " " + thirdClick + "\n");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -30,8 +34,11 @@ public class MainActivity extends AppCompatActivity {
                                     int position, long id) {
                 //This is new
 
+                System.out.println("\nClick values: " + firstClick + " " + secondClick + " " + thirdClick + "\n");
+
                 //Set clicks upon start
                 //If the first click is not set, go ahead and set it.
+                System.out.println("\nGot to the clicking stuff!\n");
                 if(firstClick < 0) {
                     System.out.println("\nGot here too!\n");
                     firstClick = position;
