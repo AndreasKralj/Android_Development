@@ -43,11 +43,14 @@ public class MainActivity extends AppCompatActivity {
                     System.out.println("\nGot here too!\n");
                     firstClick = position;
                 }
-                if(secondClick < 0 && firstClick >= 0) {
+                else if(secondClick < 0 && firstClick >= 0) {
                     secondClick = position;
                 }
-                if(thirdClick < 0 && secondClick >= 0 && firstClick >= 0) {
+                else if(thirdClick < 0 && secondClick >= 0 && firstClick >= 0) {
                     thirdClick = position;
+                }
+                else {
+                    //Do nothing
                 }
                 //Check if clicks are set
                 if(firstClick >= 0 && secondClick >= 0 && thirdClick >= 0) {
